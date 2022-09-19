@@ -125,9 +125,8 @@ li:hover {
 
 nav {
     position: fixed;
-    top: calc(100vh - 80%);
+    top: 0;
     right: 0;
-    /* top: 0; */
 }
 
 nav a {
@@ -239,6 +238,7 @@ nav svg {
     position: absolute;
     z-index: 0;
     object-fit: fill;
+    filter: brightness(0.8);
 }
 
   @-webkit-keyframes background-moving {
@@ -289,7 +289,6 @@ nav svg {
     height: 35px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 25px;
-    opacity: 0.75;
     box-sizing: content-box;
   }
 
@@ -487,7 +486,7 @@ nav svg {
 
 #contact article {
     padding: 1.5rem;
-    margin:  1rem 4rem 4rem 4rem;
+    margin:  1rem 0rem;
     border: 0.5rem solid var(--gray-color);
     border-radius: 1rem;
 
@@ -538,7 +537,7 @@ nav svg {
 }
 
 #contact span svg {
-    width: 20rem;
+    width: 75%;
     margin: 3rem 0rem;
     transition: 0.3s;
 }
@@ -726,7 +725,7 @@ a.button-green svg {
     /* ------ NAV ------ */
 
     nav {
-        top: none;
+        top: calc(100vh - 80%);
     }
 
     ul {
@@ -817,6 +816,10 @@ a.button-green svg {
         margin-left: auto;
         /* margin-bottom: 8rem; */
         margin-right: auto;
+    }
+
+    #contact span svg {
+        width: 20rem;
     }
 
     .menu-icon {
