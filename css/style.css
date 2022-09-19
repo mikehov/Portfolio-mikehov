@@ -1,0 +1,839 @@
+* {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #BCEBCB;
+    --second-color: #FAF3DD;
+    --third-color: #25452F;
+    --text-color: #4d4d4d;
+    --black-color: #262626;
+    --gray-color: #e6e6e6;
+    --white-color: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-color);
+}
+
+h1 {
+    font-weight: bold;
+    color: var(--white-color);
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+p, a {
+    font-family: 'DM Sans', 'Raleway', sans-serif;
+    line-height: 1.6rem;
+    font-size: 1rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+p a {
+    font-style: italic;
+}
+
+a:hover {
+    color: var(--main-color);
+}
+
+.heading-striped {
+    background-color: var(--white-color);
+    background-image: linear-gradient(transparent 60%, var(--main-color) 40%);
+    padding: 5px 20px;
+}
+
+.heading-striped-reverse {
+    background-color: var(--second-color);
+    background-image: linear-gradient(transparent 60%, var(--main-color) 40%);
+    padding: 5px 20px;
+}
+
+p.text-date {
+    display: inline-block;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+span.highlight-green {
+    border-bottom: 4px solid var(--main-color);
+}
+
+
+/* ------ NAV ------ */
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+
+ul {
+    opacity: 0%;
+    transition: ease all 0.3s;
+    transform: translateX(100%);
+}
+
+.menu-open ul {
+    opacity: 100%;
+    transform: translateX(0);
+}
+
+li {
+    list-style: none;
+
+    padding: 0.8rem;
+    margin: 1.5rem 0rem;
+
+    background-color: var(--white-color);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .5);
+    transition: ease 0.3s;
+    border-radius: 0.8rem 0rem 0rem 0.8rem;
+}
+
+li:hover {
+    background-color: var(--second-color);
+}
+
+nav {
+    position: fixed;
+    top: calc(100vh - 80%);
+    right: 0;
+    /* top: 0; */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black-color);
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+nav svg {
+    width: 1.4rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+    fill: var(--black-color);
+}
+
+.menu-icon {
+    fill: var(--white-color);
+    width: 2rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* TURNS ON AND OFF HAMBURGER MENU */
+.home-text-move {
+    opacity: 0 !important;
+}
+
+
+
+
+
+/* ------ OUTSIDERS ------ */
+
+.gray {
+    color: var(--gray-color);
+}
+
+
+
+
+/* ------ HOME BACKGROUND ------ */
+
+#home {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(255, 255, 255, 0) 50%, rgba(0,0,0,0.5) 100%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+
+    padding-bottom: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+#home h1 {
+    position: relative;
+    text-align: right;
+    padding-left: 1rem;
+
+    margin-right: 7rem;
+    margin-bottom: 2rem;
+}
+
+#home h1::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    right: 4px;
+
+    width: 100px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: var(--main-color);
+}
+
+#home p {
+    color: var(--white-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+
+    margin-right: 7rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.home-background-animation-image {
+    
+    width: calc(100vw + 40px);
+    height: calc(100vh + 40px);
+    background-image: url(../img/background.png);
+    background-size: cover;
+    /* background-position: left center; */
+
+    -webkit-animation: background-moving 12s ease-in-out infinite;
+    animation: background-moving 12s ease-in-out infinite;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+
+    position: absolute;
+    z-index: 0;
+    object-fit: fill;
+}
+
+  @-webkit-keyframes background-moving {
+    0% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+    50% {
+     -webkit-transform:translate3d(0,-40px,0);
+     transform:translate3d(0,-40px,0)
+    }
+    100% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+   }
+
+   @keyframes background-moving {
+    0% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+    50% {
+     -webkit-transform:translate3d(0,-40px,0);
+     transform:translate3d(0,-40px,0)
+    }
+    100% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+   }
+
+.scroll-down {
+    position: absolute;
+    margin: auto auto;
+    left: 0;
+    right: 0;
+    bottom: 5rem;
+    text-align: center;
+
+    width: 34px;
+    height: 55px;
+}
+
+  .mouse {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+  }
+
+  .mouse-scroll {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: rgba(255, 255, 255, 0.6);
+    animation-name: scroll;
+    animation-duration: 2.5s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes scroll {
+    0% { opacity: 0; }
+    20% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
+  }
+
+
+
+
+
+/* ------ ABOUT ------ */
+
+#about {
+    width: 100vw;
+    background-color: var(--white-color);
+    padding: 2rem;
+}
+
+#about h2 {
+    color: var(--text-color);
+
+    padding: 0rem 1.5rem 1rem 1.5rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+#about p {
+    /* padding: 0.5rem 1.5rem 1.5rem 1.5rem; */
+    line-height: 1.6;
+}
+
+#about .mike-hovenier {
+    position: relative;
+    width: 70%;
+    height: auto;
+    max-width: 70vw;
+    display: block;
+    padding: 1rem 1rem 1rem 1rem;
+    margin: auto auto;
+    border-radius: 50%;
+    border: 5px solid var(--main-color);
+}
+
+#about .flags {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 3rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+#about .flags img {
+    margin: 0;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    padding: 0rem 0rem 0rem 0rem;
+    top: 0;
+    border: 3px solid var(--second-color);
+}
+
+#about .flags img:first-child {
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+#about .flags img:nth-child(2) {
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#about .flags img:nth-child(3) {
+    right: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+#about div {
+    position: relative;
+    padding: 1rem;
+}
+
+
+
+
+
+/* ------ PROJECT ------ */
+
+#project {
+    width: 100vw;
+    /* min-height: 100vh; */
+    background-color: var(--second-color);
+    padding: 2rem;
+}
+
+#project h2 {
+    color: var(--text-color);
+
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+#project p {
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    line-height: 1.6;
+}
+
+#project h2.titleline::after {
+    background-color: var(--text-color);
+}
+
+#project .project-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+#project .project-blocks a {
+    display: block;
+}
+
+#project .project-blocks img {
+    width: 8rem;
+    height: auto;
+    margin: 1rem;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+    filter: grayscale(100%);
+}
+
+#project .project-blocks img:hover {
+    transform: translateY(-0.5rem);
+    filter: grayscale(0%);
+}
+
+#project .padding-text {
+    padding: 1.5rem;
+    margin: 1rem 1rem;
+    background-color: var(--white-color);
+    border-radius: 4px;
+}
+
+
+
+
+
+/* ------ CONTACT ------ */
+
+#contact {
+    width: 100vw;
+    /* height: 100vh; */
+    background-color: var(--white-color);
+    padding: 2rem;
+}
+
+#contact h2 {
+    color: var(--text-color);
+
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    line-height: 1.5;
+}
+
+#contact a {
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+#contact a:hover {
+    color: var(--second-color);
+}
+
+#contact article {
+    padding: 1.5rem;
+    margin:  1rem 4rem 4rem 4rem;
+    border: 0.5rem solid var(--gray-color);
+    border-radius: 1rem;
+
+    text-align: center;
+}
+
+#contact img {
+    width: 70%;
+    height: auto;
+    margin: 2rem 0rem 1rem 0rem;
+    padding: 1.5em;
+    transition: 0.3s;
+}
+
+#contact img:hover {
+    transform: translate(1.2deg);
+}
+
+#contact h3 {
+    position: relative;
+    padding: 0.5rem 0.5rem 2rem 0.5rem;
+    font-size: 1.5rem;
+}
+
+#contact h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100px;
+    height: 3px;
+    background-color: var(--main-color);
+}
+
+#contact a {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+}
+
+#contact span {
+    transition: 0.8s all ease;
+}
+
+#contact span svg:hover {
+    transform: translateY(-1rem) rotate(10deg);
+}
+
+#contact span svg {
+    width: 20rem;
+    margin: 3rem 0rem;
+    transition: 0.3s;
+}
+
+
+
+
+
+/* ------ FOOTER ------ */
+
+footer {
+    padding: 1rem;
+    background-color: var(--black-color);
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    color: var(--main-color);
+    text-align: center;
+    font-size: 1rem;
+}
+
+footer img {
+    margin-top: 1rem;
+    width: 2.5rem;
+    height: auto;
+    transition: ease 0.5s;
+    margin: 0.5rem 0.5rem;
+    border-radius: 50%;
+}
+
+footer img:hover {
+    transform: rotate(360deg);
+}
+
+
+
+
+/* ------ WORK ------ */
+
+#work {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--white-color);
+    padding: 2rem;
+}
+
+#work h1 {
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem 0rem;
+}
+
+#work p {
+    padding: 1rem 0rem;
+    line-height: 1.6;
+}
+
+#work .home-icon {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    left: 2rem;
+    top: 2rem;
+    fill: var(--black-color);
+    /* border: 2px solid var(--main-color);
+    border-radius: 50%; */
+}
+
+#work .home-icon:hover {
+    fill: var(--main-color);
+}
+
+#work h1 .heading-striped {
+    background-color: var(--white-color);
+    background-image: linear-gradient(transparent 60%, var(--second-color) 40%);
+}
+
+#work .the-project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+#work .the-project-images {
+    align-items: center;
+    display: flex;
+}
+
+#work h1 {
+    font-size: 3rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+#work .the-project p {
+    max-width: 40rem;
+}
+
+#work .the-project img {
+    width: 100%;  
+}
+
+section.other-projects {
+    background-color: var(--second-color);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+section.other-projects .project-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+section.other-projects .project-blocks a {
+    display: block;
+}
+
+section.other-projects .project-blocks img {
+    width: 5rem;
+    height: auto;
+    margin: 1rem;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+    filter: grayscale(100%);
+}
+
+section.other-projects .project-blocks img:hover {
+    transform: translateY(-0.5rem);
+    filter: grayscale(0%);
+}
+
+
+/* ------ BUTTON ------ */
+
+div.buttons {
+    margin: 0.5rem 0rem 2rem 0rem;
+}
+
+a.button-green {
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 1rem;
+    border-radius: 3px;
+    margin-right: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+a.button-green:hover {
+    background-color: var(--second-color);
+    color: var(--white-color);
+}
+
+a.button-green svg {
+    width: 1.6rem;
+    height: auto;
+    fill: var(--white-color);
+    margin-right: 0.5rem;
+}
+
+
+/* ------ DESKTOP ------ */
+
+@media screen and (min-width: 48rem) {
+
+    h1 {
+        margin-right: 8rem;
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    p, a {
+        font-size: 1.2rem;
+    }
+
+
+    /* ------ NAV ------ */
+
+    nav {
+        top: none;
+    }
+
+    ul {
+        opacity: 100%;
+        transform: translateX(0);
+    }
+
+
+    /* ------ HOME-BACKGROUND ------ */
+
+    #home-background h2 {
+        margin-right: 8rem;
+    }
+
+    .line {
+        margin-right: 8rem;
+    }
+
+
+    /* ------ ABOUT ------ */
+
+    #about {
+        max-width: 50rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-bottom: 2rem;
+        margin-right: auto;
+    }
+
+    #about .mike-hovenier {
+        width: 20rem;
+        margin: 2rem auto 2rem auto;
+    }
+
+    #about .flags {
+        right: 11rem;
+    }
+
+
+    /* ------ PROJECT ------ */
+
+    #project {
+        width: 100%;
+        /* min-height: 100vh; */
+
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1rem;
+
+        margin-top: 0rem;
+        margin-left: auto;
+        margin-bottom: 2rem;
+        margin-right: auto;
+    }
+
+    #project div {
+        max-width: 50rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-bottom: 0rem;
+        margin-right: auto;
+    }
+
+    #project .padding-text {
+        margin: 1rem;
+    }
+
+    #project .project-blocks img {
+        filter: grayscale(100%);
+    }
+
+    #project .project-blocks img:hover {
+        filter: grayscale(0%);
+    }
+
+
+    /* ------ CONTACT ------ */
+
+    #contact {
+        max-width: 50rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        /* margin-top: 5rem; */
+        margin-left: auto;
+        /* margin-bottom: 8rem; */
+        margin-right: auto;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* ------ WORK ------ */
+
+    #work .the-project {
+        flex-wrap: nowrap;    
+    }
+
+    #work .the-project img {
+        width: 20rem;  
+    }
+
+    #work .the-project-images {
+        padding: 1rem 1rem 1rem 2rem;
+    }
+}
