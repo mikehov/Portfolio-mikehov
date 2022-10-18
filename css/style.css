@@ -743,7 +743,8 @@ a.button-green svg {
     /* ------ NAV ------ */
 
     nav {
-        top: calc(100vh - 80%);
+        /* top: calc(100vh - 80%); */
+        top: 2rem;
     }
 
     ul {
