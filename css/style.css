@@ -401,7 +401,7 @@ nav svg {
 #about .icon-about-list-brown svg {
     width: 3rem;
     height: 3rem;
-    margin: 0rem 0.25rem;
+    margin: 0.5rem 0.25rem;
     fill: var(--second-color);
 }
 
