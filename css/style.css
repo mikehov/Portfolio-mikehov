@@ -125,6 +125,10 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
+
+    display: flex;
+    height: 100%;
+    align-items: center;
 }
 
 nav a {
@@ -748,10 +752,6 @@ a.button-green svg {
 
 
     /* ------ NAV ------ */
-
-    nav {
-        top: 2rem;
-    }
 
     ul {
         opacity: 100%;
